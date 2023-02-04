@@ -1,0 +1,26 @@
+{
+  "name": "it-academy",
+  "version": "1.0.0",
+  "description": "IT-academy Tat",
+  "main": "node.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tatyana253/IT-academy.git"
+  },
+  "author": "Tatyana D",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Tatyana253/IT-academy/issues"
+  },
+  "homepage": "https://github.com/Tatyana253/IT-academy#readme",
+  "dependencies": {
+    "axios": "^1.2.4",
+    "eslint": "^8.32.0",
+    "fs-extra": "^11.1.0",
+    "prettier": "^2.8.3",
+    "yargs": "^17.6.2"
+  }
+}
