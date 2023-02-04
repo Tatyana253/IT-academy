@@ -25,7 +25,7 @@ do {
 
 let arr = [12, 15, 20, 25, 59, 79];
 const length = arr.length;
-let sum = [12, 15, 20, 25, 59, 79].reduce(function(a, b) {
+let sum = arr.reduce(function(a, b) {
     return a + b;
 });
 //console.log(sum);
