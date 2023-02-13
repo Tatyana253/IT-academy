@@ -70,6 +70,6 @@ let newArraytoMin = newArray.sort(function(a, b) {
   });
 
 //task6
-let newArray6 = [4, 2, 2, 5, 1, 1, 3];
-var unique = newArray6.filter((value, index, array) => array.indexOf(value) === index);
+let newArraySix = [4, 2, 2, 5, 1, 1, 3];
+var unique = newArraySix.filter((value, index, array) => array.indexOf(value) === index);
 
