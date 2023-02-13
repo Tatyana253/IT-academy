@@ -92,7 +92,7 @@ do {
             console.log(Arr3);
 
         }
-  } while (number != a + b +c);
+  } while (number !== a + b +c);
 
 do {
     a = getRandomArbitraryThreeRound(min3, max3);
@@ -103,7 +103,7 @@ do {
             console.log(Arr3Round);
 
         }
-  } while (number != a + b +c);
+  } while (number !== a + b +c);
 
 
 //Task 3 - another solution
