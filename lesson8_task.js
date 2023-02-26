@@ -10,23 +10,23 @@ function getMaxOfArray(arrMax) {
   };
 
 //task3
-  let n = 1;
-  let m = 5;
+  let num1 = 1;
+  let num2 = 5;
   let fib = getFibonacciArray(n, m);
 
   function getFibonachi(n) {
-    return n <= 1 ? n : getFibonachi(n - 1) + getFibonachi(n - 2);
+    return num1 <= 1 ? num1 : getFibonachi(num1 - 1) + getFibonachi(num1 - 2);
 };
 
 function getFibonacciArray(n, m) {
     let fib = [];
-    for (let i = 0; i < m; i++) {
-      fib.push(getFibonachi(n + i));
+    for (let i = 0; i < num2; i++) {
+      fib.push(getFibonachi(num2 + i));
     }
     return fib;
   };
 
-  getFibonacciArray(n, m);
+  getFibonacciArray(num1, num2);
 
 //task4
 
@@ -71,5 +71,5 @@ let newArraytoMin = newArray.sort(function(a, b) {
 
 //task6
 let newArraySix = [4, 2, 2, 5, 1, 1, 3];
-var unique = newArraySix.filter((value, index, array) => array.indexOf(value) === index);
+let unique = newArraySix.filter((value, index, array) => array.indexOf(value) === index);
 
