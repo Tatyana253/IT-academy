@@ -77,29 +77,31 @@ const persons: Person[] = [
 ];
 
 // 3. Напишите анотации типов к этому классу.
+interface ObjectManipulatorInterface {
+  set(key: string, value: string): object;
+  get(key: string): string | number | boolean;
+  delete(key: string): object;
+  getObject(): object;
+}
 
-export class ObjectManipulator<T> {
-  constructor(protected obj: T) {}
+export class ObjectManipulator implements ObjectManipulatorInterface {
+  constructor(protected obj: object) {}
 
-  public set<Key extends keyof T>(
-    key: Key,
-    value: T[Key]
-  ): ObjectManipulator<T & Record<Key, typeof value>> {
+  public set(key, value) {
     return new ObjectManipulator({ ...this.obj, [key]: value });
   }
 
-  public get<Key extends keyof T>(key: Key): T[Key] {
+  public get(key) {
     return this.obj[key];
   }
 
-  public delete<Key extends keyof T>(
-    key: Key
-  ): ObjectManipulator<Omit<T, Key>> {
+  public delete(key) {
     const newObj = { ...this.obj };
     delete newObj[key];
     return new ObjectManipulator(newObj);
   }
-  public getObject(): T {
+
+  public getObject() {
     return this.obj;
   }
 }
@@ -117,24 +119,25 @@ export class ObjectManipulator<T> {
  *
  * 0 arguments passed: returns itself.
  *
- */// @param {Function} mapper
- /* @param {Array} input
+ * @param {Function} mapper
+ * @param {Array} input
  * @return {Array | Function}
  */
- type Mapper<T, R> = (value: T, index: number, array: T[]) => R;
- export function map<T, R>(mapper: Mapper<T, R>, input?: T[]): R[] | ((input: T[]) => R[]) | typeof map {
-    if (arguments.length === 0) {
-      return map;
-    }
-    if (arguments.length === 1) {
-        return (subInput: T[]) => subInput.map(mapper);
-      }
-      if (arguments.length === 1) {
-        return (subInput: T[]) => subInput.map(mapper);
-      }
-    return input!.map(mapper);
- }
 
+export function map(mapper: (value: number, index: number, array: number[]) => number, input: number[]): number[] | Function {
+  if (arguments.length === 0) {
+    return map;
+  }
+  if (arguments.length === 1) {
+    return function subFunction(subInput: number[]): number [] | Function {
+      if (arguments.length === 0) {
+        return subFunction;
+      }
+      return subInput.map(mapper);
+    };
+  }
+  return input.map(mapper);
+}
 
 /**
  * 2 arguments passed: returns a new array
@@ -152,21 +155,20 @@ export class ObjectManipulator<T> {
  * @param {Array} input
  * @return {Array | Function}
  */
-export function filter<M>(filterer: M, input: M[]) {
-    if (arguments.length === 0) {
-        return filter;
-    }
-    if (arguments.length === 1) {
-        return function subFunction(subInput: M[]) {
-            if (arguments.length === 0) {
-                return subFunction;
-            }
-            return subInput.filter(filterer);
-        };
-    }
-    return input.filter(filterer);
+export function filter(filterer: (value: number, index: number, array: number[]) => number, input: number[]): number[]| Function  {
+  if (arguments.length === 0) {
+    return filter;
+  }
+  if (arguments.length === 1) {
+    return function subFunction(subInput: number[]): number[] | Function {
+      if (arguments.length === 0) {
+        return subFunction;
+      }
+      return subInput.filter(filterer);
+    };
+  }
+  return input.filter(filterer);
 }
-
 
 /**
  * 2 arguments passed: returns sum of a and b.
@@ -180,17 +182,17 @@ export function filter<M>(filterer: M, input: M[]) {
  * @param {Number} b
  * @return {Number | Function}
  */
-export function add(a: number, b: number) {
-    if (arguments.length === 0) {
-        return add;
-    }
-    if (arguments.length === 1) {
-        return function subFunction(subB: number) {
-            if (arguments.length === 0) {
-                return subFunction;
-            }
-            return a + subB;
-        };
-    }
-    return a + b;
+export function add(a: number, b: number): number| Function {
+  if (arguments.length === 0) {
+    return add;
+  }
+  if (arguments.length === 1) {
+    return function subFunction(subB: number): number | Function {
+      if (arguments.length === 0) {
+        return subFunction;
+      }
+      return a + subB;
+    };
+  }
+  return a + b;
 }
