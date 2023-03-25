@@ -19,7 +19,7 @@ describe('ChromeDriver Website test', function () {
     await driver.get("https://chromedriver.chromium.org/home");
     const mainTitle = await driver.findElement(By.className("Rn3Z1b C9DxTc"));
     let text = await mainTitle.getText();
-    expect(await title.toLowerCase()).to.contain('chromedriver');
+    expect(text).to.equal('ChromeDriver');
   });
 
   it("go to chrome extensions", async () => {
