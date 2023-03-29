@@ -12,8 +12,8 @@ describe("ChromeDriver Website test", function () {
     await driver.quit();
   });
 
-  //test1
-  it("text should equal Chrome driver", async () => {
+//test1
+it("text should equal Chrome driver", async () => {
     await driver.get("https://chromedriver.chromium.org/home");
     const mainTitle = await driver.findElement(By.className("Rn3Z1b C9DxTc"));
     let text = await mainTitle.getText();
@@ -21,7 +21,7 @@ describe("ChromeDriver Website test", function () {
     expect(await mainTitle.getText()).to.equal("ChromeDriver");
   });
 
-  it.skip("go to chrome extensions", async () => {
+  it("go to chrome extensions", async () => {
     //await driver.get("https://chromedriver.chromium.org/home");
     await driver.wait(
       until.elementIsVisible(
@@ -45,56 +45,72 @@ describe("ChromeDriver Website test", function () {
     let textExtensions = await extensionsTitle.getText();
     expect(textExtensions).to.equal("Chrome Extensions");
   });
-  //test2
-  it("go to extensions two", async () => {
-    await driver.get("https://chromedriver.chromium.org/home");
-    /* await driver.wait(
-      until.elementIsVisible(
-        await driver.findElement(
-          By.xpath(
-            "//*[@class='aJHbb hDrhEe HlqNPb'] [@data-url='/extensions']"
-          )
-        )
-      ),
-      10000
-    );
-    */
-    const additionalButton = await driver.findElement(
-      By.xpath("//a[contains(text(),'Дополнительно')]")
-    );
-    await additionalButton.click();
-    const chromeExtensionsButton = await driver.findElement(
-      By.xpath("//*[@class='aJHbb hDrhEe HlqNPb'] [@data-url='/extensions']")
-    );
-    await chromeExtensionsButton.click();
-    await driver.wait(until.urlContains("/extensions"), 3000);
-    const extensionsTitle = await driver.findElement(
-      By.xpath("//span[@class=' Rn3Z1b']")
-    );
-    let textExtensions = await extensionsTitle.getText();
-    expect(textExtensions).to.equal("Chrome Extensions");
-  });
-  //test3
-  it("search driver", async () => {
+
+
+//test2
+it("go to extensions two", async () => {
+await driver.get("https://chromedriver.chromium.org/home");
+/* await driver.wait(
+  until.elementIsVisible(
+    await driver.findElement(
+      By.xpath(
+        "//*[@class='aJHbb hDrhEe HlqNPb'] [@data-url='/extensions']"
+      )
+    )
+  ),
+  10000
+);
+*/
+const additionalButton = await driver.findElement(
+  By.xpath("//a[contains(text(),'Дополнительно')]")
+);
+await additionalButton.click();
+const chromeExtensionsButton = await driver.findElement(
+  By.xpath("//*[@class='aJHbb hDrhEe HlqNPb'] [@data-url='/extensions']")
+);
+await chromeExtensionsButton.click();
+await driver.wait(until.urlContains("/extensions"), 3000);
+const extensionsTitle = await driver.findElement(
+  By.xpath("//span[@class=' Rn3Z1b']")
+);
+let textExtensions = await extensionsTitle.getText();
+expect(textExtensions).to.equal("Chrome Extensions");
+});
+
+
+
+  //test3 Updated
+  it("search driver new", async () => {
     await driver.get("https://chromedriver.chromium.org/home");
     const buttonSearch = await driver.findElement(
       By.css(".vu8Pwe.tCHXDc.YSH9J")
     );
     await buttonSearch.click();
-    let searchInput = await driver.findElement(By.xpath("//input"));
-    await driver.wait(until.elementIsVisible(searchInput), 3000);
-    await searchInput.sendKeys("driver");
-    const search = await driver.findElement(
-      By.css(".U26fgb.mUbCce.fKz7Od.i3PoXe.M9Bg4d")
-    );
-    await search.click();
+    await driver.wait(until.elementIsVisible(await driver.findElement(By.xpath("//input[@type='search']"))), 20000);
+    await driver.findElement(By.xpath("//input[@type='search']")).sendKeys("driver");
 
-    const elementFound = await driver.findElements(
-      By.xpath("//*[@class='yDWqEe'][1]")
+    /*const fieldSearch = await driver.findElement(
+    By.xpath("//input[@type='search']")
     );
-    let textFound = await elementFound.getText();
-    expect(textFound[0]).to.contain("driver");
-  });
+    await fieldSearch.click();
+    await fieldSearch.sendKeys("driver");*/
+    //await driver.wait(until.elementIsVisible(await driver.findElement(
+        //By.xpath("//*[@class='vu8Pwe']"))), 20000);
+    const searchStart = await driver.findElement(
+      By.xpath("//*[@class='vu8Pwe']")
+    );
+    await searchStart.click();
+    const SuggestedResultOne = await driver.wait(until.elementLocated(await driver.findElement(By.xpath("//div[@class='gtazFe'][1]/div[@class='vH0yjd'][1]/a [1]"))), 20000);
+    
+    //const elementFound = await driver.findElements(
+    //By.xpath("//div[@class='gtazFe'][1]")
+    //);
+
+    let textFound = await SuggestedResultOne.getText();
+    expect(textFound).to.contain("driver");
+  //expect(SuggestedResultOne).to.contain("driver");
+});
+
 
   //test4
   it("navitation to Mobile Emulation", async () => {
