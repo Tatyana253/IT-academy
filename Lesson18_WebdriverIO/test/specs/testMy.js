@@ -30,10 +30,30 @@ describe("Verify webdriverio site", () => {
   it("search browser", async () => {
     await $(".DocSearch-Button-Placeholder").waitForDisplayed();
     await $(".DocSearch-Button-Placeholder").click();
-    await $(".DocSearch-Input").setValue("Browser");
+    await $(".DocSearch-Input").setValue("browser");
     await $("//*[@class='DocSearch-Hit']/a").waitForDisplayed();
     const suggestedResults = await $$(".DocSearch-Hit-title");
     const firstResult = await suggestedResults[0];
-    await expect(await firstResult.getText()).to.include("Browser");
+    const firstResultText = await firstResult.getText();
+    await expect(firstResultText.toLowerCase()).to.include("browser");
   });
+
+  //test4
+  it("should clear value after search", async () => {
+    await $(".DocSearch-Button-Placeholder").waitForDisplayed();
+    await $(".DocSearch-Button-Placeholder").click();
+    await $(".DocSearch-Input").setValue("test");
+    await $("//*[@class='DocSearch-Hit']/a").waitForDisplayed();
+    const suggestedResults = await $$(".DocSearch-Hit-title");
+    const firstResult = await suggestedResults[0];
+    const firstResultText = await firstResult.getText();
+    console.log(firstResultText);
+    await expect(firstResultText.toLowerCase()).to.contain('test');
+    await $(".DocSearch-Input").clearValue();
+    const valueCleared = await $(".DocSearch-Input").getValue();
+    console.log(valueCleared);
+    await expect(valueCleared === '');
+  });
+
+
 });
