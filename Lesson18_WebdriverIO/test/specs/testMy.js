@@ -48,12 +48,21 @@ describe("Verify webdriverio site", () => {
     const firstResult = await suggestedResults[0];
     const firstResultText = await firstResult.getText();
     console.log(firstResultText);
-    await expect(firstResultText.toLowerCase()).to.contain('test');
+    await expect(firstResultText.toLowerCase()).to.contain("test");
     await $(".DocSearch-Input").clearValue();
     const valueCleared = await $(".DocSearch-Input").getValue();
     console.log(valueCleared);
-    await expect(valueCleared === '');
+    await expect(valueCleared === "");
   });
 
-
+  //test5
+  it("should navigate to github", async () => {
+    await $(".navbar__item.navbar__link.header-github-link").waitForDisplayed();
+    await $(".navbar__item.navbar__link.header-github-link").click();
+    await browser.switchWindow("github.com/webdriverio/webdriverio");
+    await $(".mr-2.flex-self-stretch").waitForDisplayed();
+    await expect(
+      await $("//strong/a[@data-pjax='#repo-content-pjax-container']").getText()
+    ).to.contain("webdriverio");
+  });
 });
