@@ -1,3 +1,4 @@
+
 class BasePage {
     constructor() {
       this.navbarGettingStartedLink = "//div[@class='navbar__items']/a[@class='navbar__item navbar__link'][1]";
@@ -22,6 +23,9 @@ class BasePage {
     async clickSearchButton() {
       await $(this.searchButton).click();
     }
+    async navigate(url) {
+      await browser.url(url);
+  }
   }
 
   module.exports = BasePage;

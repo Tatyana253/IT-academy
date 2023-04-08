@@ -1,4 +1,5 @@
-class Header {
+const BasePage = require("../basePage");
+class Header extends BasePage {
   get logo() {
     return $(
       ".navbar__brand > .navbar__logo > .themedImage_ToTc.themedImage--light_HNdA"
@@ -46,6 +47,11 @@ class Header {
   }
   get searchLink() {
     return $(".DocSearch-Button-Placeholder");
+  }
+
+  async goToGettingStartedPage() {
+    await this.gettingStartedLink.waitForDisplayed();
+    await this.gettingStartedLink.click();
   }
 }
 module.exports = new Header();

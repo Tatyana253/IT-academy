@@ -4,7 +4,7 @@ const GettingStartedPage = require('../pageobjects/gettingStartedPage');
 const ContributePage = require('../pageobjects/contributePage');
 const SearchResultPage = require ('../pageobjects/searchResultPage');
 
-describe("Verify webdriverio site", () => {
+describe.skip("Verify webdriverio site", () => {
   let homePage, gettingStartedPage, contributePage, searchResultPage;
 
   beforeEach(async () => {

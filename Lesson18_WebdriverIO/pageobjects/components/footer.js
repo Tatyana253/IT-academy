@@ -1,4 +1,6 @@
-class Footer {
+const BasePage = require('../basePage');
+
+class Footer extends BasePage {
   get openJslogo() {
     return $(".themedImage_ToTc.themedImage--light_HNdA.footer__logo");
   }
@@ -58,6 +60,12 @@ class Footer {
     return $(
       "//a[@class='footer__link-item'][@href='https://github.com/webdriverio/webdriverio']"
     );
+  }
+
+  async goToContributeFooter() {
+    await this.contributeLink.waitForDisplayed();
+    await this.contributeLink.scrollIntoView();
+    await this.contributeLink.click();
   }
 }
 module.exports = new Footer();
