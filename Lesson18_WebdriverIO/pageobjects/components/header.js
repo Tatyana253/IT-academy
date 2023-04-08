@@ -1,30 +1,51 @@
-// header.page.js
 class Header {
-    get logo() {
-      return $('img[src="/images/webdriverio.png"]');
-    }
-  
-    get gettingStartedLink() {
-      return $('=Getting Started');
-    }
-  
-    get apiLink() {
-      return $('=API');
-    }
-  
-    get blogLink() {
-      return $('=Blog');
-    }
-  
-    get helpLink() {
-      return $('=Help');
-    }
-  
-    get githubLink() {
-      return $('[href="https://github.com/webdriverio/webdriverio"]');
-    }
+  get logo() {
+    return $(
+      ".navbar__brand > .navbar__logo > .themedImage_ToTc.themedImage--light_HNdA"
+    );
   }
-  
-  module.exports = new Header();
-  
-  
+
+  get gettingStartedLink() {
+    return $(
+      "//a[@class='navbar__item navbar__link'][@href='/docs/gettingstarted']"
+    );
+  }
+
+  get apiLink() {
+    return $("//a[@class='navbar__item navbar__link'][@href='/docs/api']");
+  }
+
+  get blogLink() {
+    return $("//a[@class='navbar__item navbar__link'][@href='/blog']");
+  }
+
+  get contributeLink() {
+    return $(
+      "//a[@class='navbar__item navbar__link'][@href='/docs/contribute/']"
+    );
+  }
+
+  get communityLink() {
+    return $(
+      "//a[@class='navbar__item navbar__link'][@href='/community/support']"
+    );
+  }
+  get versionsLink() {
+    return $("//a[@class='navbar__item navbar__link'][@href='/versions']");
+  }
+
+  get githubLink() {
+    return $(
+      "//a[@class='navbar__item navbar__link'][@href='https://github.com/webdriverio/webdriverio']"
+    );
+  }
+  get twitterLink() {
+    return $(
+      "//a[@class='navbar__item navbar__link'][@href='https://twitter.com/webdriverio']"
+    );
+  }
+  get searchLink() {
+    return $(".DocSearch-Button-Placeholder");
+  }
+}
+module.exports = new Header();
