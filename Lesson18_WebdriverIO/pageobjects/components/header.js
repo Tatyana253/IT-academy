@@ -32,13 +32,11 @@ class Header extends BasePage {
     );
   }
   get versionsLink() {
-    return $("//a[@class='navbar__item navbar__link'][@href='/versions']");
+    return $("//div[@class='navbar__items navbar__items--right'] /a[1]");
   }
 
   get githubLink() {
-    return $(
-      "//a[@class='navbar__item navbar__link'][@href='https://github.com/webdriverio/webdriverio']"
-    );
+    return $("//div[@class='navbar__items navbar__items--right'] /a[2]");
   }
   get twitterLink() {
     return $(
@@ -52,6 +50,13 @@ class Header extends BasePage {
   async goToGettingStartedPage() {
     await this.gettingStartedLink.waitForDisplayed();
     await this.gettingStartedLink.click();
+  }
+
+  async goToGithub() {
+    await this.githubLink.waitForDisplayed();
+    await this.githubLink.click();
+    await browser.switchWindow("github.com/webdriverio/webdriverio");
+    await $(".mr-2.flex-self-stretch").waitForDisplayed();
   }
 }
 module.exports = new Header();

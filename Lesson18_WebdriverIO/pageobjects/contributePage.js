@@ -1,15 +1,11 @@
 class ContributePage {
-    get title() {
-      return $("//h1");
-    }
-  
-    async getTitleText() {
-      return this.title.getText();
-    }
+  get title() {
+    return $("//h1");
   }
-  
-  module.exports = new ContributePage();
-  
 
+  async getTitleText() {
+    return this.title.getText();
+  }
+}
 
-
+module.exports = new ContributePage();

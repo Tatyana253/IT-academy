@@ -1,4 +1,4 @@
-const BasePage = require('../basePage');
+const BasePage = require("../basePage");
 
 class Footer extends BasePage {
   get openJslogo() {

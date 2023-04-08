@@ -1,6 +1,8 @@
 class HomePage {
   get gettingStartedLink() {
-    return $("//div[@class='navbar__items']/a[@class='navbar__item navbar__link'][1]");
+    return $(
+      "//div[@class='navbar__items']/a[@class='navbar__item navbar__link'][1]"
+    );
   }
 
   get contributeFooterLink() {
@@ -48,7 +50,10 @@ class HomePage {
     await browser.switchWindow("github.com/webdriverio/webdriverio");
     await $(".mr-2.flex-self-stretch").waitForDisplayed();
   }
+
+  async getSearchInputValue() {
+    return await this.searchInput.getValue();
+  }
 }
 
 module.exports = new HomePage();
-

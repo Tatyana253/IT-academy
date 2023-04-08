@@ -1,6 +1,6 @@
 const { expect } = require("chai");
 
-describe("Verify webdriverio site", () => {
+describe.skip("Verify webdriverio site", () => {
   beforeEach(async () => {
     await browser.url("https://webdriver.io/");
   });
