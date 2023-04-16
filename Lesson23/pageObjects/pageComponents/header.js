@@ -6,6 +6,7 @@ class Header {
       this.apiLink = "//*[@class = 'navbar__item navbar__link'] [contains (text(), 'API')]";
       this.programmLanguagesLink = ".navbar__item.dropdown.dropdown--hoverable";
       this.communityLink = "//*[@class = 'navbar__item navbar__link'] [contains (text(), 'Community')]";
+      this.searchLink = ".DocSearch-Button-Placeholder";
     }
   
       async goToPageWithTopNavMenu(itemLink) {
