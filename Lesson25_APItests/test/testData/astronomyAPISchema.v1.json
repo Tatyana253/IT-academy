@@ -1,0 +1,96 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+      "location": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "region": {
+            "type": "string"
+          },
+          "country": {
+            "type": "string"
+          },
+          "lat": {
+            "type": "number"
+          },
+          "lon": {
+            "type": "number"
+          },
+          "tz_id": {
+            "type": "string"
+          },
+          "localtime_epoch": {
+            "type": "integer"
+          },
+          "localtime": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "region",
+          "country",
+          "lat",
+          "lon",
+          "tz_id",
+          "localtime_epoch",
+          "localtime"
+        ]
+      },
+      "astronomy": {
+        "type": "object",
+        "properties": {
+          "astro": {
+            "type": "object",
+            "properties": {
+              "sunrise": {
+                "type": "string"
+              },
+              "sunset": {
+                "type": "string"
+              },
+              "moonrise": {
+                "type": "string"
+              },
+              "moonset": {
+                "type": "string"
+              },
+              "moon_phase": {
+                "type": "string"
+              },
+              "moon_illumination": {
+                "type": "string"
+              },
+              "is_moon_up": {
+                "type": "integer"
+              },
+              "is_sun_up": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "sunrise",
+              "sunset",
+              "moonrise",
+              "moonset",
+              "moon_phase",
+              "moon_illumination",
+              "is_moon_up",
+              "is_sun_up"
+            ]
+          }
+        },
+        "required": [
+          "astro"
+        ]
+      }
+    },
+    "required": [
+      "location",
+      "astronomy"
+    ]
+  }
