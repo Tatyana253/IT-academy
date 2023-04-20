@@ -1,0 +1,78 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Generated schema for Root",
+    "type": "object",
+    "properties": {
+      "profile": {
+        "type": "object",
+        "properties": {
+          "subdomain": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "subdomain"
+        ]
+      },
+      "recognizeBy": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "name"
+          ]
+        }
+      },
+      "dataMarker": {
+        "type": "array",
+        "items": {}
+      },
+      "providers": {
+        "type": "object",
+        "properties": {
+          "fcm": {
+            "type": "object",
+            "properties": {
+              "sender_id": {
+                "type": "string"
+              },
+              "public_vapid": {}
+            },
+            "required": [
+              "sender_id",
+              "public_vapid"
+            ]
+          }
+        },
+        "required": [
+          "fcm"
+        ]
+      },
+      "signedIdentifiedActions": {
+        "type": "array",
+        "items": {}
+      },
+      "notifications": {
+        "type": "array",
+        "items": {}
+      },
+      "cookieMatchers": {
+        "type": "array",
+        "items": {}
+      }
+    },
+    "required": [
+      "profile",
+      "recognizeBy",
+      "dataMarker",
+      "providers",
+      "signedIdentifiedActions",
+      "notifications",
+      "cookieMatchers"
+    ]
+  }
