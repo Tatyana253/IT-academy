@@ -1,0 +1,397 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "football": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "stadium": {
+              "type": "string"
+            },
+            "country": {
+              "type": "string"
+            },
+            "region": {
+              "type": "string"
+            },
+            "tournament": {
+              "type": "string"
+            },
+            "start": {
+              "type": "string"
+            },
+            "match": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "stadium",
+            "country",
+            "region",
+            "tournament",
+            "start",
+            "match"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "stadium": {
+              "type": "string"
+            },
+            "country": {
+              "type": "string"
+            },
+            "region": {
+              "type": "string"
+            },
+            "tournament": {
+              "type": "string"
+            },
+            "start": {
+              "type": "string"
+            },
+            "match": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "stadium",
+            "country",
+            "region",
+            "tournament",
+            "start",
+            "match"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "stadium": {
+              "type": "string"
+            },
+            "country": {
+              "type": "string"
+            },
+            "region": {
+              "type": "string"
+            },
+            "tournament": {
+              "type": "string"
+            },
+            "start": {
+              "type": "string"
+            },
+            "match": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "stadium",
+            "country",
+            "region",
+            "tournament",
+            "start",
+            "match"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "stadium": {
+              "type": "string"
+            },
+            "country": {
+              "type": "string"
+            },
+            "region": {
+              "type": "string"
+            },
+            "tournament": {
+              "type": "string"
+            },
+            "start": {
+              "type": "string"
+            },
+            "match": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "stadium",
+            "country",
+            "region",
+            "tournament",
+            "start",
+            "match"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "stadium": {
+              "type": "string"
+            },
+            "country": {
+              "type": "string"
+            },
+            "region": {
+              "type": "string"
+            },
+            "tournament": {
+              "type": "string"
+            },
+            "start": {
+              "type": "string"
+            },
+            "match": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "stadium",
+            "country",
+            "region",
+            "tournament",
+            "start",
+            "match"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "stadium": {
+              "type": "string"
+            },
+            "country": {
+              "type": "string"
+            },
+            "region": {
+              "type": "string"
+            },
+            "tournament": {
+              "type": "string"
+            },
+            "start": {
+              "type": "string"
+            },
+            "match": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "stadium",
+            "country",
+            "region",
+            "tournament",
+            "start",
+            "match"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "stadium": {
+              "type": "string"
+            },
+            "country": {
+              "type": "string"
+            },
+            "region": {
+              "type": "string"
+            },
+            "tournament": {
+              "type": "string"
+            },
+            "start": {
+              "type": "string"
+            },
+            "match": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "stadium",
+            "country",
+            "region",
+            "tournament",
+            "start",
+            "match"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "stadium": {
+              "type": "string"
+            },
+            "country": {
+              "type": "string"
+            },
+            "region": {
+              "type": "string"
+            },
+            "tournament": {
+              "type": "string"
+            },
+            "start": {
+              "type": "string"
+            },
+            "match": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "stadium",
+            "country",
+            "region",
+            "tournament",
+            "start",
+            "match"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "stadium": {
+              "type": "string"
+            },
+            "country": {
+              "type": "string"
+            },
+            "region": {
+              "type": "string"
+            },
+            "tournament": {
+              "type": "string"
+            },
+            "start": {
+              "type": "string"
+            },
+            "match": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "stadium",
+            "country",
+            "region",
+            "tournament",
+            "start",
+            "match"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "stadium": {
+              "type": "string"
+            },
+            "country": {
+              "type": "string"
+            },
+            "region": {
+              "type": "string"
+            },
+            "tournament": {
+              "type": "string"
+            },
+            "start": {
+              "type": "string"
+            },
+            "match": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "stadium",
+            "country",
+            "region",
+            "tournament",
+            "start",
+            "match"
+          ]
+        }
+      ]
+    },
+    "cricket": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "stadium": {
+              "type": "string"
+            },
+            "country": {
+              "type": "string"
+            },
+            "region": {
+              "type": "string"
+            },
+            "tournament": {
+              "type": "string"
+            },
+            "start": {
+              "type": "string"
+            },
+            "match": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "stadium",
+            "country",
+            "region",
+            "tournament",
+            "start",
+            "match"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "stadium": {
+              "type": "string"
+            },
+            "country": {
+              "type": "string"
+            },
+            "region": {
+              "type": "string"
+            },
+            "tournament": {
+              "type": "string"
+            },
+            "start": {
+              "type": "string"
+            },
+            "match": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "stadium",
+            "country",
+            "region",
+            "tournament",
+            "start",
+            "match"
+          ]
+        }
+      ]
+    },
+    "golf": {
+      "type": "array",
+      "items": {}
+    }
+  },
+  "required": [
+    "football",
+    "cricket",
+    "golf"
+  ]
+}
