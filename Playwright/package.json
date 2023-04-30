@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "npx playwright test"
+    "test": "npx playwright test",
+    "lint": "eslint --debug ./ --fix"
   },
   "author": "Tatjana Danchenko",
   "license": "ISC",
@@ -11,7 +12,9 @@
   "description": "",
   "devDependencies": {
     "@playwright/test": "^1.33.0",
-    "eslint": "^8.39.0"
+    "eslint": "^8.39.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.27.5"
   },
   "dependencies": {
     "chai": "^4.3.7"

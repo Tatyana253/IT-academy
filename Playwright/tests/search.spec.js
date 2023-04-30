@@ -29,16 +29,4 @@ test.describe('search page tests for Decathlon website', async function() {
         await header.click(header.searchButton);
         expect(await productsPage.page.textContent(productsPage.productName)).to.include('Rower');
     });
-
-
-
-/*
-    test('sign in with existed account -  should be triggered notification that entered email was registered already', async ({page}) => {
-        await header.click(header.myAccountButton);
-        await loginPage.click(loginPage.createNewUserButton);
-        await page.type(loginPage.emailInput, 'tdancenko31@gmail.com');
-        await page.click(loginPage.submitButton);
-        expect(await loginPage.page.textContent(loginPage.errorMessage)).to.equal(" To konto już istnieje ");
-    })
-    */
 });

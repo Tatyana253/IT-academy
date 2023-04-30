@@ -4,7 +4,7 @@ class BasePage {
     }
     async click(locator) {
         await this.page.click(locator);
-      }
+    }
 }
 
 module.exports = BasePage;

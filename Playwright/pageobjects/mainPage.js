@@ -15,11 +15,10 @@ class MainPage {
     }
     async click(locator) {
         await this.page.click(locator);
-      }
-     async sendKeys(input) {
+    }
+    async sendKeys(input) {
         await this.page.type(input);
-     }
+    }
 }
 
 module.exports = MainPage;
-
