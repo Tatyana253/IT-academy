@@ -6,7 +6,7 @@ const SportyTab = require("../pageobjects/components/sportyTab");
 const TopNavMenu = require("../pageobjects/components/topNavMenu");
 const CartPage = require("../pageobjects/cartPage");
 
-test.describe.skip("TopNavMenu tests for Decathlon website", async function () {
+test.describe("TopNavMenu tests for Decathlon website", async function () {
   let mainPage;
   let header;
   let sportyTab;

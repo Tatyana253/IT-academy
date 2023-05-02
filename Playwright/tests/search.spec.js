@@ -6,7 +6,7 @@ const CartPage = require("../pageobjects/cartPage");
 const LoginPage = require("../pageobjects/loginPage");
 const ProductsPage = require("../pageobjects/productsPage");
 
-test.describe.skip(
+test.describe(
   "search page tests for Decathlon website",
   async function () {
     let mainPage;

@@ -1,7 +1,7 @@
 class CartPage {
   constructor(page) {
     this.page = page;
-    this.emptyCartNotification = "//h2";
+    this.emptyCartNotification = ".cart-empty__container.svelte-11o9gok>h2";
     this.emptyCartNotificationWithText =
       "//h2[@class='svelte-11o9gok'][contains(text(),'Twój koszyk jest pusty.')]";
     this.addedToCartItem = ".cart-line.svelte-2faiun";

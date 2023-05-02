@@ -15,7 +15,6 @@ test.describe("E2E tests for Login page for Decathlon website", async function (
   let myAccountPage;
   let productsPage;
   let productDetailsPage;
-  let paymentPage;
 
   test.beforeEach(async ({ page }) => {
     mainPage = new MainPage(page);
@@ -25,7 +24,6 @@ test.describe("E2E tests for Login page for Decathlon website", async function (
     myAccountPage = new MyAccountPage(page);
     productsPage = new ProductsPage(page);
     productDetailsPage = new ProductDetailsPage(page);
-    paymentPage = new PaymentPage(page);
 
     await mainPage.navigate("https://www.decathlon.pl/");
     await header.click(mainPage.acceptCookiesButton);
@@ -36,9 +34,7 @@ test.describe("E2E tests for Login page for Decathlon website", async function (
     await header.click(myAccountPage.logOutButton);
   });
 
-  test.skip("should log in with valid credentials from header", async ({
-    page,
-  }) => {
+  test("should log in with valid credentials from header", async ({ page }) => {
     await header.click(header.myAccountButton);
     await page.type(loginPage.emailInput, "tdancenko31@gmail.com");
     await page.click(loginPage.submitButton);
@@ -52,7 +48,7 @@ test.describe("E2E tests for Login page for Decathlon website", async function (
     ).to.include("Татьяна");
   });
 
-  test.skip("should log in with valid credentials from cart after addiing and deleting item from cart", async ({
+  test("should log in with valid credentials from cart after addiing and deleting item from cart", async ({
     page,
   }) => {
     await header.click(header.searchField);
@@ -64,8 +60,7 @@ test.describe("E2E tests for Login page for Decathlon website", async function (
     await productDetailsPage.click(productDetailsPage.goToCartButton);
     await cartPage.wait(cartPage.nameOfAddedItem);
     await cartPage.click(cartPage.deleteItemButton);
-    await cartPage.wait(cartPage.logiInButton);
-    await cartPage.click(cartPage.logiInButton);
+    await cartPage.click(cartPage.logInButton);
     await page.type(loginPage.emailInput, "tdancenko31@gmail.com");
     await page.click(loginPage.submitButton);
     await page.click(loginPage.passwordInput);

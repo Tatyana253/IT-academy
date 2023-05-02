@@ -4,7 +4,7 @@ const Header = require("../pageobjects/components/header");
 const { expect } = require("chai");
 const LoginPage = require("../pageobjects/loginPage");
 
-test.describe.skip("Login page tests for Decathlon website", async function () {
+test.describe("Login page tests for Decathlon website", async function () {
   let mainPage;
   let header;
   let loginPage;
@@ -33,6 +33,7 @@ test.describe.skip("Login page tests for Decathlon website", async function () {
     await loginPage.click(loginPage.createNewUserButton);
     await page.type(loginPage.emailInput, "tdancenko31@gmail.com");
     await page.click(loginPage.submitButton);
+    await loginPage.wait(loginPage.errorMessage);
     expect(await loginPage.page.textContent(loginPage.errorMessage)).to.equal(
       " To konto już istnieje "
     );

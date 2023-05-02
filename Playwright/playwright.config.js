@@ -31,6 +31,8 @@ module.exports = defineConfig({
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
     headless: false,
+    navigationTimeout: 30000,
+    actionTimeout: 10000
   },
 
   /* Configure projects for major browsers */
@@ -71,11 +73,5 @@ module.exports = defineConfig({
     // },
   ],
 
-  /* Run your local dev server before starting the tests */
-  // webServer: {
-  //   command: 'npm run start',
-  //   url: 'http://127.0.0.1:3000',
-  //   reuseExistingServer: !process.env.CI,
-  // },
 });
 

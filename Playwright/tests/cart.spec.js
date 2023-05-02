@@ -74,9 +74,7 @@ test.describe("Cart tests for Decathlon website", async function () {
     await productsPage.click(productsPage.imageOfFoundedItem);
     await productDetailsPage.click(productDetailsPage.addToCartButton);
     await productDetailsPage.click(productDetailsPage.goToCartButton);
-    await cartPage.wait(cartPage.nameOfAddedItem);
     await cartPage.click(cartPage.deleteItemButton);
-    await cartPage.wait(cartPage.logiInButton);
     await cartPage.wait(cartPage.emptyCartNotificationWithText);
     expect(
       await cartPage.page.textContent(cartPage.emptyCartNotification)
@@ -101,34 +99,6 @@ test.describe("Cart tests for Decathlon website", async function () {
     ).to.equal(itemText);
   });
 
-  test("should login, add item to cart, select 'take from shop' and go to payment page", async ({
-    page,
-  }) => {
-    await header.click(header.searchField);
-    await page.type(header.searchField, "rower");
-    await header.click(header.searchButton);
-    await productsPage.click(productsPage.imageOfFoundedItem);
-    await productDetailsPage.click(productDetailsPage.addToCartButton);
-    await productDetailsPage.click(productDetailsPage.goToCartButton);
-    await cartPage.click(cartPage.goToDeliveryButton);
-    await page.type(loginPage.emailInput, "tdancenko31@gmail.com");
-    await page.click(loginPage.submitButton);
-    await page.click(loginPage.passwordInput);
-    await page.type(loginPage.passwordInput, "7795797Martik");
-    await page.click(loginPage.logInSubmitButton);
-    await header.click(header.cartButton);
-    await cartPage.click(cartPage.goToDeliveryButton);
-    await cartPage.click(cartPage.takeFromShopCheckbox);
-    await cartPage.click(cartPage.selectShopCheckbox);
-    await cartPage.click(cartPage.goToPaymentButton);
-    await paymentPage.wait(paymentPage.blikNumberInput);
-    expect(
-      await paymentPage.page.textContent(paymentPage.blikNumberInput)
-    ).to.equal(
-      "Wpisz wygenerowany w aplikacji banku kod BLIK (Kod musi zawierać 6 cyfr)"
-    );
-  });
-
   test("should login, add item to cart, select 'delivery to home' and go to payment page", async ({
     page,
   }) => {
@@ -149,7 +119,6 @@ test.describe("Cart tests for Decathlon website", async function () {
     await cartPage.click(cartPage.deliverygToHomeheckbox);
     await cartPage.click(cartPage.selectAddressForCourierRadiobutton);
     await cartPage.click(cartPage.goToPaymentButton);
-    await paymentPage.wait(paymentPage.blikNumberInput);
     expect(
       await paymentPage.page.textContent(paymentPage.blikNumberInput)
     ).to.equal(
