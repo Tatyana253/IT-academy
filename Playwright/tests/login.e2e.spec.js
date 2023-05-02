@@ -36,7 +36,7 @@ test.describe("E2E tests for Login page for Decathlon website", async function (
 
   test("should log in with valid credentials from header", async ({ page }) => {
     await header.click(header.myAccountButton);
-    await page.type(loginPage.emailInput, "tdancenko31@gmail.com");
+    await page.type(loginPage.emailInput, "testdanchi@gmail.com");
     await page.click(loginPage.submitButton);
     await page.click(loginPage.passwordInput);
     await page.type(loginPage.passwordInput, "7795797Martik");
@@ -45,7 +45,7 @@ test.describe("E2E tests for Login page for Decathlon website", async function (
     await header.click(header.myAccountButton);
     expect(
       await myAccountPage.page.textContent(myAccountPage.greetingsMessage)
-    ).to.include("Татьяна");
+    ).to.include("testname");
   });
 
   test("should log in with valid credentials from cart after addiing and deleting item from cart", async ({
@@ -61,7 +61,7 @@ test.describe("E2E tests for Login page for Decathlon website", async function (
     await cartPage.wait(cartPage.nameOfAddedItem);
     await cartPage.click(cartPage.deleteItemButton);
     await cartPage.click(cartPage.logInButton);
-    await page.type(loginPage.emailInput, "tdancenko31@gmail.com");
+    await page.type(loginPage.emailInput, "testdanchi@gmail.com");
     await page.click(loginPage.submitButton);
     await page.click(loginPage.passwordInput);
     await page.type(loginPage.passwordInput, "7795797Martik");
@@ -70,6 +70,6 @@ test.describe("E2E tests for Login page for Decathlon website", async function (
     await header.click(header.myAccountButton);
     expect(
       await myAccountPage.page.textContent(myAccountPage.greetingsMessage)
-    ).to.include("Татьяна");
+    ).to.include("testname");
   });
 });

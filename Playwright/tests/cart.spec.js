@@ -109,7 +109,7 @@ test.describe("Cart tests for Decathlon website", async function () {
     await productDetailsPage.click(productDetailsPage.addToCartButton);
     await productDetailsPage.click(productDetailsPage.goToCartButton);
     await cartPage.click(cartPage.goToDeliveryButton);
-    await page.type(loginPage.emailInput, "tdancenko31@gmail.com");
+    await page.type(loginPage.emailInput, "testdanchi@gmail.com");
     await page.click(loginPage.submitButton);
     await page.click(loginPage.passwordInput);
     await page.type(loginPage.passwordInput, "7795797Martik");
