@@ -8,7 +8,7 @@ const { expect } = require("chai");
 const CartPage = require("../pageobjects/cartPage");
 const ProductsPage = require("../pageobjects/productsPage");
 
-test.describe.skip("Cart tests for Decathlon website", async function () {
+test.describe("Cart tests for Decathlon website", async function () {
   let mainPage;
   let header;
   let cartPage;
@@ -28,14 +28,14 @@ test.describe.skip("Cart tests for Decathlon website", async function () {
     await header.click(mainPage.acceptCookiesButton);
   });
 
-  test.skip("cart should be empty", async ({ page }) => {
+  test("cart should be empty", async ({ page }) => {
     await header.click(header.cartButton);
     expect(
       await cartPage.page.textContent(cartPage.emptyCartNotification)
     ).to.equal("Twój koszyk jest pusty.");
   });
 
-  test.skip("item should be added to the cart from main slide content", async ({
+  test("item should be added to the cart from main slide content", async ({
     page,
   }) => {
     await mainPage.click(mainPage.mainSliderMenuLink);
@@ -50,7 +50,7 @@ test.describe.skip("Cart tests for Decathlon website", async function () {
     );
   });
 
-  test.skip("should add to cart found via search item and from productDetails popup", async ({
+  test("should add to cart found via search item and from productDetails popup", async ({
     page,
   }) => {
     await header.click(header.searchField);
@@ -66,7 +66,7 @@ test.describe.skip("Cart tests for Decathlon website", async function () {
     );
   });
 
-  test.skip("should delete added item from cart", async ({ page }) => {
+  test("should delete added item from cart", async ({ page }) => {
     await header.click(header.searchField);
     await page.type(header.searchField, "rower");
     await header.click(header.searchButton);
@@ -83,7 +83,7 @@ test.describe.skip("Cart tests for Decathlon website", async function () {
     ).to.equal("Twój koszyk jest pusty.");
   });
 
-  test.skip("should continue shopping after adding item to cart", async ({
+  test("should continue shopping after adding item to cart", async ({
     page,
   }) => {
     await header.click(header.searchField);
@@ -101,7 +101,7 @@ test.describe.skip("Cart tests for Decathlon website", async function () {
     ).to.equal(itemText);
   });
 
-  test("should login add item to cart and go to payment page", async ({
+  test("should login, add item to cart, select 'take from shop' and go to payment page", async ({
     page,
   }) => {
     await header.click(header.searchField);
@@ -120,6 +120,34 @@ test.describe.skip("Cart tests for Decathlon website", async function () {
     await cartPage.click(cartPage.goToDeliveryButton);
     await cartPage.click(cartPage.takeFromShopCheckbox);
     await cartPage.click(cartPage.selectShopCheckbox);
+    await cartPage.click(cartPage.goToPaymentButton);
+    await paymentPage.wait(paymentPage.blikNumberInput);
+    expect(
+      await paymentPage.page.textContent(paymentPage.blikNumberInput)
+    ).to.equal(
+      "Wpisz wygenerowany w aplikacji banku kod BLIK (Kod musi zawierać 6 cyfr)"
+    );
+  });
+
+  test("should login, add item to cart, select 'delivery to home' and go to payment page", async ({
+    page,
+  }) => {
+    await header.click(header.searchField);
+    await page.type(header.searchField, "rower");
+    await header.click(header.searchButton);
+    await productsPage.click(productsPage.imageOfFoundedItem);
+    await productDetailsPage.click(productDetailsPage.addToCartButton);
+    await productDetailsPage.click(productDetailsPage.goToCartButton);
+    await cartPage.click(cartPage.goToDeliveryButton);
+    await page.type(loginPage.emailInput, "tdancenko31@gmail.com");
+    await page.click(loginPage.submitButton);
+    await page.click(loginPage.passwordInput);
+    await page.type(loginPage.passwordInput, "7795797Martik");
+    await page.click(loginPage.logInSubmitButton);
+    await header.click(header.cartButton);
+    await cartPage.click(cartPage.goToDeliveryButton);
+    await cartPage.click(cartPage.deliverygToHomeheckbox);
+    await cartPage.click(cartPage.selectAddressForCourierRadiobutton);
     await cartPage.click(cartPage.goToPaymentButton);
     await paymentPage.wait(paymentPage.blikNumberInput);
     expect(
